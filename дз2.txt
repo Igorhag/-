@@ -1,0 +1,215 @@
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int a;
+	cout << "введите число\n";
+	cin >> a;
+	int b = 0;
+	for (; a <= 500;)
+	{
+		b = b + a;
+		a++;
+
+	}cout << b << " ";
+}
+
+
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	{
+
+		setlocale(LC_ALL, "rus");
+		int a, b, c;
+		cout << "введите число a\n";
+		cin >> a;
+		cout << "введите число b\n";
+		cin >> b;
+		c = a;
+		while (--b)
+		{
+		c = c * a;
+		}
+		cout << c;
+	}
+	return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	double a = 0;
+	double b = 0;
+	while (a <= 1000)
+	{
+		b = b + a;
+		a++;	
+	}
+	cout << b/1000  << '\n';
+	return 0;
+}
+
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	long long p = 1;
+	int a;
+	cin >> a;
+	int b = a;
+	while (b <= 20)
+	{
+		b++;
+		p = p * b;
+	}
+	cout << p << endl;
+	return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "rus");
+	int a;
+	cout << "введити вариант\n";
+	cin >> a;
+	int b;
+	int c = 1 >= 9;
+	while (c <= 9)
+	{
+		++c;
+		b = a * c;
+		cout << a << "*" << c << " = " << b << "\n";
+	}
+	return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "rus");
+	int a;
+	cout << "ввести число\n";
+	cin >> a;
+	int b = 0;
+	while (b <= a)
+	{
+		b++;
+		cout << b - 1 << "\n";
+	}
+	return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int a, b;
+	cout << "введите два числа\n";
+	cin >> a >> b;
+	int c;
+	if (a > b)
+	{
+		c = b; b = a; a = c;
+	}
+	cout << "все" << "\n";
+	while (a <= b)
+	{
+		a++;
+		cout << a << "\n";
+	}
+	cout << "\n";
+	cout << "четные" << "\n";
+	while (a <= b)
+	{
+		a++;
+		if ((a % 2) == 0)
+			cout << a << "\n";
+	}
+	cout << "\n";
+	cout << "не четные" << "\n";
+	while (a <= b)
+	{
+		a++;
+
+		if ((a % 2) != 0)
+			cout << a << "\n";
+	}
+	cout << "\n";
+	cout << "кратные 7" << "\n";
+	while (a <= b)
+	{
+		a++;
+
+		if ((a % 7) == 0)
+			cout << a;
+	}
+
+	return 0;
+}
+
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	double a;
+	cout<<"введити начальный диапозон\n";
+	cin >> a;
+	int b;
+	cout << "введите конечный диапозон\n";
+	cin >>  b;
+	int d=0;
+	int c;
+	if (a > b) { c = a; a = b; b = c; }
+	while (a <= b)
+	{		
+		 d= d + a;
+		a++;
+		cout << d << " ";
+	}
+	return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int a = 1;
+	int b = 0;
+	while (a != 0)
+	{
+		cin >> a;
+		b = b + a;
+		cout << b << " ";
+	}
+	return 0;
+}
