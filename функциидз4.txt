@@ -1,0 +1,322 @@
+//1
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int asd(int a, int b)
+{
+    cout << "введите основание степени \n";
+    cin >> a;
+    cout << "введите показатель степени\n";
+    cin >> b;
+        int cc;
+        cc = a;
+        cc = cc * b;
+        cout <<"результат= "<< cc<<"\n";
+        return cc;
+    }
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    asd(0,0 );
+    return 0;;
+}
+
+
+
+
+
+
+//2
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int asd(int a, int b)
+{
+    cout << "введите число \n";
+    cin >> a;
+    cout << "введите 2 число \n";
+    cin >> b;
+   int c = 0;
+   int i = a;
+        for(int ;i<=b;i++)
+        {
+            c = c + i;
+        }
+        cout <<"результат= "<< c<<"\n";
+        return c;
+    }
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+
+     asd(0,0 );
+    return 0;
+}
+
+
+
+
+
+//3
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int asd(int a, int b)
+{
+    for (int i = a; i < b; i++)
+    {
+        int result = 0;
+        for (int j = 1; j < i; j++)
+        {
+            if ((i % j) == 0)
+            {
+                result += j;
+            }
+        }
+        if (result == i && result)
+        {
+            cout << result << " \n";
+
+        }
+    }
+    return 0;
+}
+    
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    int dd = asd(0,9000 );
+    return 0;
+}
+
+
+
+
+//4
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void card(int suit, int num)
+{
+    char mast[5] = { 2,3,4,5,6 };
+    char card[13] = { 'A','2','3','4','5','6','7','8','9','0','J','Q','K' };
+    cout << " ___________________\n";
+    cout << "|                   |\n";
+    cout << "|  "<<mast[suit]<<"                | \n";
+    cout << "|  "<< card[num-1 ] <<"                | \n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|               " << mast[suit] << "   | \n";
+    cout<<  "|               " << card[num - 1] << "   |\n";
+    cout<<  "|                   |\n";
+    cout << "|                   |\n";
+    cout << "|___________________|\n";
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int a, s;
+    cout << "введите карту\n1 - туз \n2 - 2\n3 - 3\n4 - 4\n5 - 5\n6 - 6\n7 - 7\n8 - 8\n9 - 9\n10 - 10\n11 - валет\n12 - дама\n13 - корол" << "\n";
+    cin >> a;
+    cout << "\n\t\t\tкарточная масть\n1. черви.\n2. буби\n3. крести\n4. пики\n";
+    cin >> s;
+    card(s, a);
+}
+
+
+
+//5
+
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+bool LeapYear(int year)
+{
+    bool res = false;
+    if (year % 4 == 0)
+        res = true;
+    if (year % 100 == 0)
+        res = false;
+    if (year % 400 == 0)
+        res = true;
+    return res;
+}
+int Date(int d, int m, int y)
+{
+    int k = d;
+    switch (m - 1)
+    {
+    case 12: k += 31;
+    case 11: k += 30;
+    case 10: k += 31;
+    case  9: k += 30;
+    case  8: k += 31;
+    case  7: k += 31;
+    case  6: k += 30;
+    case  5: k += 31;
+    case  4: k += 30;
+    case  3: k += 31;
+    case  2: if (LeapYear(y)) k += 29; else k += 28;
+    case  1: k += 31;
+    }
+    k += (y - 1) * 365 + ((y - 1) / 4);
+    return k;
+}
+int Difference(int d1, int d2, int m1, int m2, int y1, int y2)
+{
+    int k = Date(d1, m1, y1) - Date(d2, m2, y2);
+    return k;
+}
+int main()
+{
+    SetConsoleOutputCP(1251);
+    int d1, d2, m1, m2, y1, y2;
+    cout << "Введите первый день: ";
+    cin >> d2;
+    cout << "Введите первый месяц: ";
+    cin >> m2;
+    cout << "Введите первый год: ";
+    cin >> y2;
+    cout << "Введите второй день: ";
+    cin >> d1;
+    cout << "Введите второй месяц: ";
+    cin >> m1;
+    cout << "Введите второй год: ";
+    cin >> y1;
+    cout << "Разность в днях между этими датами составляет " << Difference(d1, d2, m1, m2, y1, y2) << " дней.\n";
+    system("PAUSE");
+}
+
+
+
+//6
+
+#include "iostream"
+#include "stdlib.h"
+using namespace std;
+int aaa(int n)
+{int a1, a2, a3, a4, a5, a6, n;
+if (n > 999999) 
+{
+	cout << "ошибка\n";
+}
+    a1 = n / 1e5;
+	a2 = (n - a1 * 1e5) / 1e4;
+	a3 = (n - a1 * 1e5 - a2 * 1e4) / 1e3;
+	a4 = (n - a1 * 1e5 - a2 * 1e4 - a3 * 1e3) / 1e2;
+	a5 = (n - a1 * 1e5 - a2 * 1e4 - a3 * 1e3 - a4 * 1e2) / 10;
+	a6 = (n - a1 * 1e5 - a2 * 1e4 - a3 * 1e3 - a4 * 1e2 - a5 * 10);
+	if (a1 + a2 + a3 == a4 + a5 + a6) { cout << "Ваш билет счастливый"; }
+	else { cout << "Ваш билет обычный"; }
+	cout << "\n";
+	return ;
+}
+
+int main()
+{
+	setlocale(LC_CTYPE, "rus");
+	int n;
+	aaa(n);
+	cout << "\n Введите шестизначное число от 0 до 999999\n";
+	cin >> n;
+	return 0;	
+}
+
+
+
+//7
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int qqq(int sra[],int a)
+{
+ int r = 0;
+    for(int i=0;i<a;i++)
+    {
+        sra[i] = rand() % 20;
+        r = r + sra[i];
+       
+    } int r1 = r / a;
+        cout <<" сред ареф= "<< r1 << "\n";
+        return r1;
+ }
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    const int a = 8;
+    int sra[a];
+
+   qqq(sra, a);
+   return 0;
+}
+
+
+
+
+//8
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int xxx(int b[], int a)
+
+{int res = 0, res2 = 0, res3 = 0;
+    for (int i = 0; i < a; i++)
+    {
+        if (i % 2 == 0)
+        {
+            b[i] = rand() % 50;
+            if (b[i] > 0)
+            {
+                res++;
+            }
+            if (b[i] == 0)
+            {
+                res3++;
+            }
+        }
+        else
+        {
+            b[i] = rand() % 50 / 2 - 50;
+            {
+                res2++;
+            }
+        }
+    }
+    cout <<"количество положительных = "<< res << "\n";
+    cout << "количество отрицательных = " << res2 << "\n";
+    cout << "количество нулей = " << res3 << "\n";
+    return 0;
+}
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+  int a;
+  int *b = new int [a];
+  cin >> a;
+  cout << "введите количество чисел" << "\n"; 
+   xxx(b, a);
+   return 0;
+}
