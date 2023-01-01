@@ -1,0 +1,240 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int arr[10]={55,4,8,9,23,98,78,67,81,10};
+    int max = arr[0];
+    int min = arr[0];
+    for (int i = 0; i < 10; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+        if (arr[i] < min)
+        {
+            min = arr[i];
+        }
+    }
+    cout << "\n" << "Max: " << max << "\n" << "Min: " << min<<"\n";
+    return 0;
+}
+
+
+
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int r1 = 1, r2 = 1;
+	const int n = 12;
+	int arr[n];
+	cout << "введите сумму: " << "\n";
+	for (int i = 0; i < n; i++)
+	{
+		switch (i)
+		{
+		case 0:
+			cout << "январь: ";
+			break;
+		case 1:
+			cout << "февраль: ";
+			break;
+		case 2:
+			cout << "март: ";
+			break;
+		case 3:
+			cout << "апрель: ";
+			break;
+		case 4:
+			cout << "май: ";
+			break;
+		case 5:
+			cout << "июнь: ";
+			break;
+		case 6:
+			cout << "июль: ";
+			break;
+		case 7:
+			cout << "август: ";
+			break;
+		case 8:
+			cout << "сентябрь: ";
+			break;
+		case 9:
+			cout << "октябрь: ";
+			break;
+		case 10:
+			cout << "ноябрь: ";
+			break;
+		case 11:
+			cout << "декабрь: ";
+			break;
+		}
+		cin >> arr[i];
+	}
+	int a1;
+	int a2;
+
+	cout << "введите диапозон\n";
+	cin >> a1 >> a2;
+	int max = a1;
+	int min = a1;
+	for (int j = a1; j < a2; ++j)
+	{
+		if (max < arr[j])
+		{
+			max = arr[j];
+		}
+		if (min > arr[j])
+		{
+			min = arr[j];
+		}
+	}cout << "максимальное= " << max << "\n" << "минимальное= " << min << "\n";
+
+	return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    setlocale(LC_ALL, "Russian");
+    cout << "Введите размерность массива: ";
+    int n;
+    cin >> n;
+    int* a = new int[n];
+    cout << "Введите " << n << " элементов:\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << "a[" << i + 1 << "]: ";
+        cin >> a[i];
+    }
+    int negativ = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] < 0)
+        {
+            negativ += a[i];
+        }
+    }
+    cout << "Сумма отрицательных чисел массива = " << negativ << std::endl;
+   
+   int mult = 1;
+   for (int i = 0; i < n; i++)
+   {
+       if (i % 2 != 0)
+       {
+           mult *= a[i]; cout << a[i]<<"\n" ;
+       }
+     
+    }
+    cout << "Произведение элементов с четными номерами = " << mult << std::endl;
+
+    int d, dd;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] < 0)
+        {
+            d = i;
+            break;
+        }
+    }
+    for (int i = n - 1; i > d; i--)
+    {
+        if (a[i] < 0)
+        {
+            dd = i;
+            break;
+        }
+    }
+   
+    mult = 1;
+    for (int i = d; i < dd; i++)
+    {
+        mult *= a[i];
+    }
+   cout << "Произведение элементов стоящих между первым и последним отрицательными числами = " << mult << "\n";
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+    int main()
+    {
+        setlocale(LC_ALL, "rus");
+  
+        int a[10] = { 1,2,3,4,5,6,7,8,9,10 };
+            int b[5], c[5];                 
+
+        for (int i = 0; i < 10; i++)           
+        {
+                     
+            cout << "a[" << i << "] = " << a[i] << "\n";
+        }
+        cout << "\n";
+
+        for (int i = 0; i < 5; i++)             
+        {
+            b[i] = a[i];                        
+            cout << "b[" << i << "] = " << b[i] << "\n";
+        }
+        cout << "\n";
+
+        for (int i = 0; i < 5; i++)             
+        {
+            c[i] = a[i + 5];      
+            cout << "c[" << i << "] = " << c[i] << "\n";
+        }
+        cout << "\n";
+
+        return 0;
+    }
+
+
+
+
+
+#include <iostream>
+using namespace std;
+    int main()
+    {
+        setlocale(LC_ALL, "rus");
+            const int size = 5;
+            int arr1[size];
+            int arr2[size];
+            int arrs[size];
+            cout << "введите числа:\n";
+            for (int i = 0; i < size; i++)
+            {
+                cout << "arr1[" << i << "] = ";
+                cin >> arr1[i];
+            }
+            cout << "\nввведите числа :\n";
+            for (int i = 0; i < size; i++)
+            {
+                cout << "arr2[" << i << "] = ";
+                cin >> arr2[i];
+            }
+            cout << "\nрезультат сложения с двух массивов:\n";
+            for (int i = 0; i < size; i++)
+            {
+                arrs[i] = arr1[i] + arr2[i];
+                cout << "arr3[" << i << "] = ";
+                cout << arrs[i] << "\n";
+            }
+           
+        return 0;
+    }
