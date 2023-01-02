@@ -1,0 +1,289 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+template <class T>
+void aa(T a[], int size) {
+	int i, j;
+	T x;
+	for (i = 0; i < size; i++) { 
+		for (j = size - 1; j > i; j--) { 
+			if (a[j - 1] > a[j]) {
+				x = a[j - 1];
+				a[j - 1] = a[j];
+				a[j] = x;
+			}
+		}
+	}
+}
+int main() {
+	srand(time(NULL));
+	const int SIZE = 10;
+	int arr[SIZE];
+	
+	for (int i = 0; i < SIZE; i++) {
+		arr[i] = rand() % 100;
+		cout << arr[i] << "\t";
+	}
+	cout << "\n\n";
+	aa(arr, SIZE);
+	
+	for (int i = 0; i < SIZE; i++) {
+		cout << arr[i] << "\t";
+	}
+	cout << "\n\n";
+	return 0;
+}
+
+//2
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+template <class T>
+void aa(T a[], int size) {
+	T x;
+	int i, j;
+	for (i = 0; i < size; i++) {
+		x = a[i];
+		for (j = i - 1; j >= 0 && a[j] > x; j--)
+			a[j + 1] = a[j];
+		a[j + 1] = x;
+	}
+}
+
+int main() {
+	srand(time(NULL));
+	const int SIZE = 10;
+	int ar[SIZE];
+	for (int i = 0; i < SIZE; i++) {
+		ar[i] = rand() % 100;
+		cout << ar[i] << "\t";
+	}
+	cout << "\n\n";
+	aa(ar, SIZE);
+	for (int i = 0; i < SIZE; i++) {
+		cout << ar[i] << "\t";
+	}
+	cout << "\n\n";
+	return 0;
+}
+
+
+
+
+
+// 3
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int arr[10];
+    cout << "вход:" << endl;
+    for (int q = 0; q < 10; q++)
+    {
+        cout << "оценки " << q + 1 << ":" << endl;
+        cin >> arr[q];
+    }
+
+  int ll;
+
+    while (true)
+    {  
+        cout << "Menu" << endl;
+        cout << "вывести оценки< --- 1 \n";
+        cout << "пересдача< -------- 2 \n";
+        cout << "стипендия < ------ 3 \n";
+        cin >> ll;
+        cout << endl;
+
+        switch (ll)
+        {
+        case 1:
+            for (int w = 0; w < 10; w++)
+                cout << arr[w] << endl;
+            break;
+        case 2:
+            int repl;
+            cout << "заменить оценку:";
+            cin >> repl;
+            cout << "старая оценка " << arr[repl - 1] << endl;
+
+            cout << "ввести новую оценку:";
+            cin >> arr[repl - 1];
+            break;
+        case 3:
+            int sum=0;
+            double average_mark;
+
+            for (int q = 0; q < 10; q++)
+                sum += arr[q];
+
+            average_mark = sum / 10;
+            cout << sum << endl;
+
+            cout << average_mark;
+
+            if (average_mark == 10.7 || average_mark > 10.7)
+                cout << "есть стипендия \n";
+            break;
+        }
+
+    } 
+    return 0;
+}
+//4
+#include <iostream>
+#include <time.h>
+using namespace std; 
+const int sz = 18;
+
+void sortArrayOne(int arr[], int halfPath);
+void sortArrayTwo(int arr[], int halfPath);
+void sortSecondPartOne(int arr[], int sz, int halfPath);
+void sortSecondPartTwo(int arr[], int halfPath);
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int myArray[sz];
+    float averageNum = 0.0;
+    float resAV = 0.0;
+    int halfPath = 0;
+
+    cout << "\nВведите среднее значение -> ";
+    cin >> averageNum;
+
+    srand(time(NULL));
+    halfPath = (sz / 3) * 2;
+
+   
+    for (int i = 0; i < sz; i++)
+    {
+        myArray[i] = rand() % 100 + 1;
+    }
+    
+    cout << "\nВыводим массив : \n\n";
+    for (int i = 0; i < sz; i++)
+    {
+        if (i == 12)
+        {
+            cout << " |";
+        }
+        cout << " " << myArray[i];
+    }
+    
+    for (int i = 0; i < halfPath; i++)
+    {
+        resAV += myArray[i];
+        if (i == halfPath - 1)
+        {
+            resAV = resAV / i;
+        }
+    }
+
+    
+    if (resAV > averageNum)
+    {
+        cout << "\n\nСортируем №1 \n";
+        sortArrayOne(myArray, halfPath);
+    }
+    if (resAV < averageNum)
+    {
+        cout << "\n\nСортируем №2 \n";
+        sortArrayTwo(myArray, halfPath);
+    }
+
+   
+    cout << "\n\nВыводим сортированный массив : \n\n";
+    for (int i = 0; i < sz; i++)
+    {
+        if (i == 12)
+        {
+            cout << " |";
+        }
+        cout << " " << myArray[i];
+    }
+
+    cout << "\n\n";
+    return 0;
+}
+
+void sortArrayOne(int arr[], int halfPath)
+{
+    int tmp = 0;
+
+    for (int i = 0; i < halfPath - 1; i++)
+    {
+        if (i == halfPath - 2)
+        {
+            sortSecondPartOne(arr, sz, halfPath);
+        }
+        for (int j = i + 1; j < halfPath; j++)
+        {
+            if (arr[i] > arr[j])
+            {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+}
+
+void sortArrayTwo(int arr[], int halfPath)
+{
+    int tmp = 0;
+    sortSecondPartTwo(arr, halfPath);
+
+    for (int i = halfPath; i < sz - 1; i++)
+    {
+        for (int j = i + 1; j < sz; j++)
+        {
+            if (arr[i] > arr[j])
+            {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+}
+
+void sortSecondPartOne(int arr[], int sz, int halfPath)
+{
+    int tmp = 0;
+
+    for (int i = halfPath; i < sz - 1; i++)
+    {
+        for (int j = i + 1; j < sz; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+}
+
+void sortSecondPartTwo(int arr[], int halfPath)
+{
+    int tmp = 0;
+
+    for (int i = 0; i < halfPath - 1; i++)
+    {
+        for (int j = i + 1; j < halfPath; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+}
