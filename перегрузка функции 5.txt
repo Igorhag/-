@@ -1,0 +1,479 @@
+//1
+#include <iostream>
+#include <time.h>
+using namespace std;
+int mass(int x[][5], int b, int a)
+{
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            x[i][j] = rand() % 50;
+            cout << x[i][j] << " ";
+        }cout << "\n";
+    }cout << "\n";
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b - 1; j++)
+        {
+            int t = j;
+            int aaa = x[i][j];
+            for (int p = j; p < b; p++)
+            {
+                if (aaa > x[i][p])
+                {
+                    t = p;
+                    aaa = x[i][p];
+                }
+            }
+            swap(x[i][j], x[i][t]);
+        }
+    }for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            cout << x[i][j] << "  ";
+        }
+        cout << "\n";
+    }cout << "\n";
+            int max=0, min=0; 
+            max = x[0][0];
+            min = x[0][0];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {  
+            if (x[i][j] > max)
+                max = x[i][j];
+            if (x[i][j] < min)
+                min = x[i][j];
+        } 
+    }
+           cout << "наибольшее число= " << max << "\n";
+           cout << "наименьшее число= " << min << "\n";
+           cout<<"-----------------------------------";
+           cout << "\n";
+  return 0 ;
+}
+
+double mass(double y[][5], int b, int a)
+{
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            y[i][j] = rand() % 20 * 0.5; cout << y[i][j] << "  ";
+        }cout << "\n";
+    }cout << "\n";
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b - 1; j++)
+        {
+            int t = j;
+            int aaa = y[i][j];
+            for (int p = j; p < b; p++)
+            {
+                if (aaa > y[i][p])
+                {
+                    t = p;
+                    aaa = y[i][p];
+                }
+            }
+            swap(y[i][j], y[i][t]);
+        }
+    }for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            cout << y[i][j] << "  ";
+        }
+        cout << "\n";
+    }
+    double max = 0, min = 0;
+    max = y[0][0];
+    min = y[0][0];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            if (y[i][j] > max)
+                max = y[i][j];
+            if (y[i][j] < min)
+                min = y[i][j];
+        }
+    }
+    cout << "наибольшее число= " << max << "\n";
+    cout << "наименьшее число= " << min << "\n";
+    cout << "---------------------------------";
+    cout << "\n";
+    return 0;
+}
+char mass(char z[][5], int b, int a)
+{
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            z[i][j] = 'A' + rand() % ('z' - 'A');; cout << z[i][j] << "  ";
+        }cout << "\n";
+    } cout << "\n";
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b - 1; j++)
+        {
+            int t = j;
+            int aaa = z[i][j];
+            for (int p = j; p < b; p++)
+            {
+                if (aaa > z[i][p])
+                {
+                    t = p;
+                    aaa = z[i][p];
+                }
+            }
+            swap(z[i][j], z[i][t]);
+        }
+    }
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            cout << z[i][j] << " ";
+        }
+        cout << "\n";
+    }cout << "\n";
+    char max = 0, min = 0;
+        max = z[0][0];
+        min = z[0][0];
+        for (int i = 0; i < a; i++)
+        {
+            for (int j = 0; j < b; j++)
+            {
+                if (z[i][j] > max)
+                    max = z[i][j];
+                if (z[i][j] < min)
+                    min = z[i][j];
+            }
+        }
+        cout << "наибольшее число= " << max << "\n";
+        cout << "наименьшее число= " << min << "\n";
+        cout << "\n";
+    
+    return 0;
+}
+
+int main()
+{
+    srand(time(NULL));
+    
+    
+    const int a = 5, b = 5;
+    int x[a][b];
+    double y[a][b];
+    char z[a][b];
+    cout << mass(x,5,5);
+    cout << mass(y, 5, 5);
+    cout << mass(z, 5, 5);
+      return 0;
+}
+
+
+//2
+#include <iostream>
+#include <time.h>
+using namespace std;
+int mass(int x[], int a)
+{
+    for (int i = 0; i < a; i++)
+    {
+        x[i] = rand() % 50;
+        cout << x[i] << " ";
+    }cout << "\n";
+    cout << "\n";
+    int max = x[0];
+    for (int i = 0; i < a; i++)
+    {
+        if (x[i] > max)
+        {
+            max = x[i];
+        }
+    }cout << "max mass 1= ";
+    return  max;
+}
+ 
+
+int mass(int x1[][5], int b, int a)
+{
+   
+    cout << "\n\n\n";
+  
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            x1[i][j] = rand() % 50;
+            cout << x1[i][j] << " ";
+        }cout << "\n";
+    }cout << "\n";
+int max = x1[0][0];
+for (int i = 0; i < a; i++)
+{
+
+    for (int j = 0; j < b; j++)
+    {
+        if (x1[i][j] > max)
+        {
+            max = x1[i][j];
+        }
+    }
+ } cout << "max mass 2= ";
+    return max;
+}
+int mass(int x2[][5][5], int b, int a, int c)
+{
+cout << "\n\n\n";
+
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            for (int z = 0; z < c; z++) 
+            {
+                x2[i][j][z] = rand() % 150;
+                cout << x2[i][j][z] << " ";
+            }cout << "\n";
+        }cout << "\n";
+    }
+    int max = x2[0][0][0];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            for(int z=0;z<c;z++)
+            {
+            { 
+                if (x2[i][j][z] > max)
+                max = x2[i][j][z];
+            }
+            }
+        }
+    }cout << "max mass 3= ";
+    return max;
+}
+
+
+int main()
+{
+    srand(time(NULL));
+    setlocale(LC_ALL, "rus");
+    
+    const int a = 5, b = 5, c = 5;
+    int x1[a][b];
+    int x[a];
+    int x2[a][b][c];
+    cout << mass(x,5);
+    cout << mass(x1,5,5);
+    cout << mass(x2, 5, 5, 5);
+  
+      return 0;
+}  
+
+
+
+//3
+#include <iostream>
+#include <time.h>
+using namespace std;
+template<typename T>
+T mass(T x[], T a)
+{
+    for ( int i = 0; i < a; i++)
+    {
+        x[i] = rand() % 50;
+        cout << x[i] << " ";
+    }cout << "\n";
+    cout << "\n";
+    T max = x[0];
+    for (int i = 0; i < a; i++)
+    {
+        if (x[i] > max)
+        {
+            max = x[i];
+        }
+    }cout << "max mass 1= ";
+    return  max;
+}
+ 
+template<typename T>
+T mass(T x1[][5], T b, T a)
+{
+   
+    cout << "\n\n\n";
+  
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            x1[i][j] = rand() % 50;
+            cout << x1[i][j] << " ";
+        }cout << "\n";
+    }cout << "\n";
+T max = x1[0][0];
+for (int i = 0; i < a; i++)
+{
+
+    for (int j = 0; j < b; j++)
+    {
+        if (x1[i][j] > max)
+        {
+            max = x1[i][j];
+        }
+    }
+ } cout << "max mass 2= ";
+    return max;
+}
+template<typename T>
+T mass(int x2[][5][5], T b, T a, T c)
+{
+cout << "\n\n\n";
+
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            for (int z = 0; z < c; z++) 
+            {
+                x2[i][j][z] = rand() % 150;
+                cout << x2[i][j][z] << " ";
+            }cout << "\n";
+        }cout << "\n";
+    }
+    T max = x2[0][0][0];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            for(int z=0;z<c;z++)
+            {
+            { 
+                if (x2[i][j][z] > max)
+                max = x2[i][j][z];
+            }
+            }
+        }
+    }cout << "max mass 3= ";
+    return max;
+}
+
+
+int main()
+{
+    srand(time(NULL));
+    setlocale(LC_ALL, "rus");
+    
+    const int a = 5, b = 5, c = 5;
+   int  x1[a][b];
+     int x[a];
+    int  x2[a][b][c];
+    cout << mass(x,5);
+    cout << mass(x1,5,5);
+    cout << mass(x2, 5, 5, 5);
+  
+      return 0;
+} 
+
+
+
+//4
+#include <iostream>
+#include <time.h>
+using namespace std;
+template <typename T>
+
+T mass(T x[][5], int b, int a)
+{
+   
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b - 1; j++)
+        {
+            int t = j;
+            int aaa = x[i][j];
+            for (int p = j; p < b; p++)
+            {
+                if (aaa > x[i][p])
+                {
+                    t = p;
+                    aaa = x[i][p];
+                }
+            }
+            swap(x[i][j], x[i][t]);
+        }
+    }for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            cout << x[i][j] << "  ";
+        }
+        cout << "\n";
+    }cout << "\n";
+    T max = 0, min = 0;
+    max = x[0][0];
+    min = x[0][0];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            if (x[i][j] > max)
+                max = x[i][j];
+            if (x[i][j] < min)
+                min = x[i][j];
+        }
+    }
+    cout << "наибольшее число= " << max << "\n";
+    cout << "наименьшее число= " << min << "\n";
+    cout << "-----------------------------------";
+    cout << "\n";
+    return 0;
+}
+
+
+
+int main()
+{
+    srand(time(NULL));
+    setlocale(LC_ALL, "rus");
+
+    const int a = 5, b = 5;
+    int x[a][b];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            x[i][j] = rand() % 50;
+            cout << x[i][j] << " ";
+        }cout << "\n";
+    }cout << "\n";
+
+    double y[a][b];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            y[i][j] = rand() % 20 * 0.5; cout << y[i][j] << "  ";
+        }cout << "\n";
+    }cout << "\n";
+
+    char z[a][b];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            z[i][j] = 'A' + rand() % ('z' - 'A');; cout << z[i][j] << "  ";
+        }cout << "\n";
+    } cout << "\n";
+    cout << mass(x, 5, 5);
+    cout << mass(y, 5, 5);
+    cout << mass(z, 5, 5);
+    return 0;
+}
