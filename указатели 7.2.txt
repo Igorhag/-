@@ -1,0 +1,580 @@
+//1
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    cout << "Введите размерность массива 1 и 2: ";
+    int n, n1, k = 0, ind = 0;;
+    cout << "\n";
+    cin >> n >> n1;
+    cout << "\n";
+    int* a = new int[n];
+    int* b = new int[n1];
+    int* c = new int[n + n1];
+    int i = 0;
+    cout << "массив 1:\n";
+    for (i = 0; i < n; i++)
+    {
+        a[i] = rand() % 100;
+        cout << "a[" << i + 1 << "]= " << a[i] << "\n";
+
+
+    }
+    cout << "\n";
+    cout << "массив 2:\n";
+    for (i = 0; i < n1; i++)
+    {
+        b[i] = rand() % 100;
+        cout << "b[" << i + 1 << "]= " << b[i] << "\n";
+
+    }
+    for (int i = 0; i < n; i++)
+    {
+        k = 0;
+        for (int j = 0; j < n1; j++)
+        {
+
+            if (a[i] != b[j]) { k++; };
+        }
+        if (k == n) {
+            c[ind] = a[i]; ind++;
+
+        }
+    }
+
+    for (int i = 0; i < n1; i++)
+    {
+        k = 0;
+        for (int j = 0; j < n; j++)
+        {
+
+            if (b[i] != a[j]) { k++; };
+        }
+        if (k == n) {
+            //c[ind] = b[i]; ind++;
+
+
+        }
+    }
+
+    k = 0; int buf1 = 0;
+    int* buf = new int[ind];
+    buf[buf1] = c[i];
+    for (int j = 0; j < ind; j++)
+    {
+        k = 0;
+        for (int i = 0; i < ind; i++)
+            if (c[j] != buf[i]) { k++; }
+        if (k == ind) { buf1++; buf[buf1] = c[j]; }
+    }
+    cout << "\n";
+    int* res = new int[buf1 + 1];
+    cout << "массив з:\n";
+
+    for (int i = 1; i <= buf1; i++)
+    {
+        res[i] = buf[i];
+        cout << "\n" << res[i];
+    }
+    delete[]a;
+    delete[]b;
+    delete[]c;
+    delete[]res;
+    return 0;
+}
+
+
+//2
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    cout << "Введите размерность массива 1 и 2: ";
+    int n, n1, k = 0, ind = 0;;
+    cout << "\n";
+    cin >> n >> n1;
+    cout << "\n";
+    int* a = new int[n];
+    int* b = new int[n1];
+    int* c = new int[n + n1];
+    int i = 0;
+    cout << "массив 1:\n";
+    for (i = 0; i < n; i++)
+    {
+        a[i] = rand() % 100;
+        cout << "a[" << i + 1 << "]= " << a[i] << "\n";
+
+
+    }
+    cout << "\n";
+    cout << "массив 2:\n";
+    for (i = 0; i < n1; i++)
+    {
+        b[i] = rand() % 100;
+        cout << "b[" << i + 1 << "]= " << b[i] << "\n";
+
+    }
+    for (int i = 0; i < n; i++)
+    {
+        k = 0;
+        for (int j = 0; j < n1; j++)
+        {
+
+            if (a[i] != b[j]) { k++; };
+        }
+        if (k == n) {
+            c[ind] = a[i]; ind++;
+
+        }
+    }
+
+    for (int i = 0; i < n1; i++)
+    {
+        k = 0;
+        for (int j = 0; j < n; j++)
+        {
+
+            if (b[i] != a[j]) { k++; };
+        }
+        if (k == n) {
+            c[ind] = b[i]; ind++;
+
+
+        }
+    }
+
+    k = 0; int buf1 = 0;
+    int* buf = new int[ind];
+    buf[buf1] = c[i];
+    for (int j = 0; j < ind; j++)
+    {
+        k = 0;
+        for (int i = 0; i < ind; i++)
+            if (c[j] != buf[i]) { k++; }
+        if (k == ind) { buf1++; buf[buf1] = c[j]; }
+    }
+    cout << "\n";
+    int* res = new int[buf1 + 1];
+    cout << "массив з:\n";
+
+    for (int i = 0; i <= buf1; i++)
+    {
+        res[i] = buf[i];
+        cout << "\n" << res[i];
+    }
+    delete[]a;
+    delete[]b;
+    delete[]c;
+    delete[]res;
+    return 0;
+}
+//2
+
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    cout << "Введите размерность массива 1 и 2: ";
+    int n, n1, k = 0, ind = 0;;
+    cout << "\n";
+    cin >> n>>n1;
+    cout << "\n";
+    int* a = new int[n];
+    int* b = new int[n1];
+    int* c = new int[n + n1];
+    int i = 0;
+    cout << "массив 1:\n";
+    for ( i = 0; i < n; i++)
+    {
+        a[i] = rand() % 100;
+        cout << "a[" << i + 1 << "]= "<<a[i]<<"\n";
+     
+
+    }
+    cout << "\n";
+    cout << "массив 2:\n";
+    for ( i = 0; i < n1; i++)
+    {
+        b[i] = rand() % 100;
+        cout << "b[" << i + 1 << "]= "<<b[i]<<"\n";
+      
+    }
+    for (int i = 0; i < n; i++)
+    {
+        k = 0;
+        for (int j = 0; j < n1; j++)
+        {
+
+            if (a[i] != b[j]) { k++; };
+        }
+        if (k == n) {
+            c[ind] = a[i]; ind++;
+            
+        }
+    }
+
+    for (int i = 0; i < n1; i++)
+    {
+        k = 0;
+        for (int j = 0; j < n; j++)
+        {
+
+            if (b[i] != a[j]) { k++; };
+        }
+        if (k == n) {
+            c[ind] = b[i]; ind++;
+            
+        
+        }
+    }
+
+    k = 0; int buf1 = 0;
+   int* buf = new int[ind];
+    buf[buf1] = c[0];
+    for (int j = 0; j < ind; j++)
+    {
+        k = 0;
+        for (int i = 0; i < ind; i++)
+            if (c[j] != buf[i]) { k++; }
+        if (k == ind) { buf1++; buf[buf1] = c[j]; }
+    }
+    cout << "\n";
+    int*res = new int[buf1 + 1];
+ cout << "массив з:\n";
+    
+    for (int i = 0; i <= buf1; i++)
+    {
+        res[i] = buf[i];
+        cout << "\n" << res[i];
+    }
+    return 0;
+}
+
+//3
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    cout << "Введите размерность массива 1 и 2: ";
+    int n, n1, o = 0;;
+    cout << "\n";
+    cin >> n >> n1;
+    cout << "\n";
+    int n2 = n + n1;
+    int* a = new int[n];
+    int* b = new int[n1];
+    int* c = new int[n2];
+    int i = 0;
+    cout << "массив 1:\n";
+    for (i = 0; i < n; i++)
+    {
+        a[i] = rand() % 100;
+        cout << "a[" << i + 1 << "]= " << a[i] << "\n";
+        c[o] = a[i]; ++o;
+
+    }
+    cout << "\n";
+    cout << "массив 2:\n";
+    for (i = 0; i < n1; i++)
+    {
+        b[i] = rand() % 100;
+        cout << "b[" << i + 1 << "]= " << b[i] << "\n";
+
+        c[o] = b[i]; ++o;
+    }
+
+    cout << "\n";
+    cout << "массив 3:\n";
+    for ( i = 0; i < n2; i++)
+    {
+        cout <<"c["<<i+1<<"]= " << c[i]<<"\n";
+    }
+    delete[]a;
+    delete[]b;
+    delete[]c;
+    return 0;
+}
+
+//4
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    cout << "Введите размерность массива 1 и 2: ";
+    int n, n1, k = 0, ind = 0;;
+    cout << "\n";
+    cin >> n >> n1;
+    cout << "\n";
+    int* a = new int[n];
+    int* b = new int[n1];
+    int* c = new int[n + n1];
+    int i = 0;
+    cout << "массив 1:\n";
+    
+        for (i = 0; i < n; i++)
+        {
+            a[i] = rand() % 100;
+            cout << "a[" << i + 1 << "]= " << a[i] << "\n";
+        }
+        cout << "\n";
+        cout << "массив 2:\n";
+        for (i = 0; i < n1; i++)
+        {
+            b[i] = rand() % 100;
+            cout << "b[" << i + 1 << "]= " << b[i] << "\n";
+        }
+        for (int i = 0; i < n; i++)
+        {
+            k = 0;
+            for (int j = 0; j < n1; j++)
+            {
+                if (a[i] == b[j]) { k++; };
+            }
+            if (k >0) 
+            {
+                c[ind] = a[i]; ind++;
+            }
+        }
+        for (int i = 0; i < n1; i++)
+        {
+            k = 0;
+            for (int j = 0; j < n; j++)
+            {
+                if (b[i] == a[j]) { k++; };
+            }
+            if (k>0)
+            {
+                c[ind] = b[i]; ind++;
+            }  
+        }
+        k = 0; int buf1 = 0;
+        int* buf = new int[ind];
+        buf[buf1] = c[i];
+        for (int j = 0; j < ind; j++)
+        {
+            k = 0;
+            for (int i = 0; i < ind; i++)
+                if (c[j] != buf[i]) { k++; }
+            if (k == ind) { buf1++; buf[buf1] = c[j]; }
+        }
+        cout << "\n";
+        int* res = new int[buf1 + 1];
+        cout << "массив з:\n";
+        for (int i = 1; i <= buf1; i++)
+        {
+            if (ind == 0)
+            {
+                cout << "нет одинаковых значений\n";
+            }
+            else
+            {
+                res[i] = buf[i];
+                cout << "c[" << i+1  << "]= " << res[i]<<"\n";
+            }
+        }
+        delete[]a;
+        delete[]b;
+        delete[]c;
+        delete[]res;
+        return 0;
+}
+
+
+//5
+
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+
+using namespace std;
+
+int main()
+{
+    srand(time(NULL));
+    setlocale(LC_ALL, "rus");
+    int b;
+    cout << "введите количество элементов: ";
+    cin >> b;
+    int* a = new int[b];
+
+    
+    for (int i = 0; i < b; i++)
+    {
+        a[i] = rand() % 50;
+        cout <<"a= "<<i<< a[i] << "\n";
+    }
+
+    while (true)
+    {
+        int n;
+        cout << "\nменю:" << "\n";
+        cout << "1 - удалить нечетные" << "\n";
+        cout << "2 - удалить четные" << "\n";
+        cout << "\n";
+        cin >> n;
+        switch (n)
+        {
+        case 1:
+        {
+            for (int i = 0; i < b; i++)
+            {
+                if (a[i] % 2 == 0)
+                {
+                    cout <<"a= "<<i <<a[i] << "\n";
+                }
+            }
+        } break;
+        case 2:
+        {
+            for (int i = 0; i < b; i++)
+            {
+                if ((a[i] % 2 != 0))
+                {
+                    cout <<"a= "<<i<< a[i] << "\n";
+                }
+            }
+        } break;
+       
+        default:
+        {
+            cout << "\nошибка" << "\n";
+        }
+        }
+    }
+    return 0;
+}
+
+
+//6
+
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+bool isPrime(int n)
+{
+    for (int i = 2; i * i <= n; i++)
+        if (n % i == 0) return false;
+    return true;
+}
+
+int* killPrimes(int* a, int& N)
+{
+    int j = 0;
+    for (int i = 0; i < N; ++i)
+    {
+        if (!isPrime(a[i]))
+            a[j++] = a[i];
+    }
+    int* b = new int[N = j];
+    for (int i = 0; i < N; ++i)
+    {
+        b[i] = a[i];
+    }
+    return b;
+}
+
+int main()
+{
+    int N = 40;
+    int a[40];
+    for (int i = 0; i < N; ++i)
+        cout << (a[i] = rand() % 30) << " ";
+    cout << endl;
+
+    int* b = killPrimes(a, N);
+    for (int i = 0; i < N; ++i)
+        cout << b[i] << " ";
+    cout << endl;
+
+}
+
+//7
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+const int Size = 20;
+void convertArray(int* startArray, int Size);
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand((int)time(NULL));
+    
+    int startArray[Size];
+    
+    for (int i = 0; i < Size; i++)
+    {
+        startArray[i] = rand() % 20-10;
+        cout << startArray[i]<<" ";
+    }
+    cout << "\n";
+
+   convertArray(startArray, Size);
+   int* q,*w,*e = startArray;
+}
+
+
+void convertArray(int* startArray, int Size)
+{
+    int positiveArraySize = 0;
+    int negativeArraySize = 0;
+    int zeroArraySize = 0;
+
+    int* q = new int[positiveArraySize];
+    cout << "большн нуля " << "\n";
+    for (int i = 0; i < Size; i++)
+    {
+        if (startArray[i] > 0)
+        {
+            positiveArraySize++;
+            q[positiveArraySize] = startArray[i];
+            cout << q[positiveArraySize] << " ";
+        }
+    }cout << "\n";
+
+        int* w = new int[negativeArraySize];
+        cout << "меньше нуля " << "\n";
+        for (int i = 0; i < Size; i++) {
+            if (startArray[i] < 0)
+            {
+                negativeArraySize++;
+                w[negativeArraySize] = startArray[i];
+                cout << w[negativeArraySize] << " ";
+            }
+        }cout << "\n";
+
+        int* e = new int[zeroArraySize];
+  cout << "равно ноль " << "\n";
+        for (int i = 0; i < Size; i++)
+        {
+            if (startArray[i] ==0)
+            {
+                zeroArraySize++;
+                e[zeroArraySize]=startArray[i];
+                cout <<e[zeroArraySize] << " ";
+            }
+        }
+        
+}
