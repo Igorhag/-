@@ -1,0 +1,322 @@
+//1
+
+#include <iostream>
+#include <string>
+#include <windows.h>
+using namespace std;
+string delChar(string st, int n)
+{
+    string str = "";
+    for (int i = 0; i < st.size(); i++)
+    {
+        if (i != n - 1)
+            str += st[i];
+    }
+    return str;
+}
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    setlocale(LC_ALL, "RUSSIAN");
+    string text = "Hello world!";
+    cout << delChar(text, 5);
+    return 0;
+}
+
+//2
+
+
+#include <iostream>
+using namespace std;
+
+void remove(char* arr, char ch)
+{
+    const char* old = arr;
+    while (*old)
+    {
+        if (*old != ch) {
+            *arr = *old;
+            ++arr;
+        }
+        ++old;
+    }
+    *arr = '\0';
+}
+int main()
+{
+    char* str = "ssstssrisstngsss";
+    remove(str, 's');
+    cout << str << endl;
+    return 0;
+}
+//3
+
+#include<iostream>
+using namespace std;
+
+const int SIZE = 25;
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+
+    char* line1 = new char[SIZE] {"Hello world!"};
+    char symbol = { '0' };
+    int index = 0;
+
+    cout << line1 << endl << endl;
+
+    cout << "Введите индекс: ";
+    cin >> index;
+
+    cout << "Введите символ: ";
+    cin >> symbol;
+
+
+    char* line2 = new char[SIZE] {};
+
+    for (int i = 0; i < index; i++) {
+        line2[i] = line1[i];
+    }
+
+    line2[index] = symbol;
+
+    for (int i = index; i < strlen(line1); i++) {
+        line2[i] = line1[i];
+    }
+
+    cout << line2;
+
+
+    delete[]line1;
+    delete[]line2;
+    cout << endl << endl;
+    system("pause");
+    return 0;
+}
+
+//4
+
+
+#include <iostream>
+using namespace std;
+void main()
+{
+    char line[100];
+    cout << "Enter line:";
+    cin.getline(line, 100);
+
+    for (int i = 0; i < 100; i++)
+    {
+        if (line[i] == '.') {
+            line[i] = '!';
+        }
+
+    }
+
+    cout << line << endl;
+    cin.get(); cin.get();
+}
+
+
+//5
+
+
+
+nclude <iostream>
+using namespace std;
+void main()
+{
+    setlocale(LC_ALL, "Russian");
+
+    char line[100];
+    cout << "Введите строку:";
+    cin.getline(line, 100);
+    
+    int count = 0;
+    for (int i = 0; i < 100; i++)
+    {
+
+        if (line[i] == '1') {
+            count++;
+        }
+    }
+    cout << "В предложении " << count << " символ (-а, -ов)!";
+
+    cin.get(); cin.get();
+}
+
+//6
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+
+//------------------------------------//буквы
+int strLenght(char* str) {
+    int counter = 0;
+
+    while (str[counter] != '\0') {
+        counter++;
+    }
+    return counter;
+}
+//------------------------------------//цифры
+int strLenght1(char* str1) {
+    int counter1 = 0;
+
+    while (str1[counter1] != '\0') {
+        counter1++;
+    }
+    return counter1;
+}
+//------------------------------------//символы
+int strLenht2(char* str2) {
+    int counter2 = 0;
+
+    while (str2[counter2] != '\0') {
+        counter2++;
+    }
+    return counter2;
+}
+//------------------------------------//другое
+int strLenght3(char* str3) {
+    int counter3 = 0;
+
+    while (str3[counter3] != '\0') {
+        counter3++;
+    }
+    return counter3;
+}
+
+
+int main() 
+{
+
+    setlocale(0, "");
+   
+    char str[]= "вакенрпрорпп";
+    char* a = str;//буквы
+    char str1[]= "12323536457456345345345";
+    char* b = str1;//цифры
+    char str2[]= "..,./,/,./,/.';'"; 
+    char* c = str2; //символы
+    char str3[] = "$#@!@#$%#^$&%*^&(*)*)*(_*(&^%^$%^";
+    char* d = str3;//другое
+    strLenght(str);
+    strLenght1(str1);
+    strLenht2(str2);
+    strLenght3(str3);
+    cout << "букв = " << strlen(str) << endl;
+    cout << "цифр = " << strlen(str1) << endl;
+    cout << "символов = " << strlen(str2) << endl;
+    cout << "другое = " << strlen(str3) << endl;
+}
+
+
+//7
+
+
+include <iostream>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int i = 0, j = 0;
+    char strok[] = "а б в г д е ";
+    cout << strok << endl;
+    while (strok[i] != '0')
+    {
+        if (strok[i] == ' ')
+        {
+            strok[i] = '\t';
+            j++;
+        }
+        i++;
+    }
+    cout << strok << endl;
+   
+    return 0;
+}
+
+
+//8
+
+#include <iostream>
+#include <cstdlib>
+#include <cctype>
+#include <cstring>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int countLetter = 0, countDigit = 0, countSymb = 0;
+    char str[500];
+    cout << "Введите строку:" << endl;
+    cin.getline(str, 500);
+    for (int i = 0; i < strlen(str); i++)
+    {
+        if (isalpha(str[i]))
+            countLetter++;
+        else if (isdigit(str[i]))
+            countDigit++;
+        else
+            countSymb++;
+    }
+    cout << "Количество букв в строке: " << countLetter << endl;
+    cout << "Количество цифр в строке: " << countDigit << endl;
+    cout << "Количество других символов в строке: " << countSymb << endl;
+    system("pause");
+    return 0;
+}
+
+
+//9
+
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+
+using namespace std;
+ int main()
+{
+    setlocale(LC_ALL, "Russian");
+    char str[80];
+    cout << "введите слова:\n";
+    cin.getline(str, 80);
+    int len = strlen(str);
+    int i, count = 1, line = 1;
+
+    for (i = 0; i < len; i++)
+    {
+        if (str[i] == ' ')
+        {
+            count++;
+        }
+       
+    }
+    cout << "количество слов =" << count;
+    return 0;
+}
+
+//10
+
+
+#include <algorithm>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    if (equal(s.begin(), s.begin() + s.size() / 2, s.rbegin())) {
+        cout << "является" << endl;
+
+    }
+    else {
+        cout << "не является" << endl;
+    }
+}
