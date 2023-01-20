@@ -1,0 +1,108 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    int a = 0, b = 0;
+    const char* a1[] = { "январь","февраль","март","апрель","май","июнь" };
+
+ for (int j = 0; j < 6; j++)
+    {
+        cout << "введите прибыл за " << a1[j] << "=";
+        cin >> a;
+        cout << "\n\n";
+        b = b + a;
+    }
+    cout << "прибыль за 6 месяцев= " << b << "\n\n";
+    return 0;
+}
+
+
+//2
+#include <iostream>
+#include <time.h>
+#include<stdarg.h>
+using namespace std;
+int aa(int arr[], int i, int a) 
+{
+ 
+    for (i = 0; i < a; i++) {
+        arr[i] = rand() % 50;
+        cout << arr[i] << " ";
+    }
+    cout << "\n\n";
+    for (i = a-1; i >= 0; i--)
+    {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    int a, i=0;
+    cout << "введите количество элементов\n";
+    cin >> a;
+    int* arr = new int[a];
+        aa(arr, i, a);
+        return 0;
+}
+
+//3
+#include <iostream>
+using namespace std;
+ int main()
+    { setlocale(LC_ALL, "rus");
+       
+        int s = 0, a[5];
+        for (int i = 0; i < 5; i++)
+        {
+            cout << "Сторона " << i + 1 << " = ";
+            cin >> a[i];
+            s += a[i];
+        }
+        cout << "Периметр = " << s;
+        return 0;
+    }
+    
+
+
+//4
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand(time(NULL));
+    const int size = 12;
+    int array[size];
+
+    cout << "Введите прибыль фирмы за год(12 месяцев)\n\n";
+    for (int i = 0; i < size; i++)
+    {
+        cout << "Прибыль за " << i + 1 << " месяц :";
+        cin >> array[i];
+    }
+
+    int maxIncome = array[0], minIncome = array[0];
+
+    for (int j=0; j<12; j++)
+    {
+        if (array[j] > maxIncome);
+        maxIncome = array[j];
+
+        if (array[j] < minIncome)
+            minIncome = array[j];
+    }
+
+    cout << "Максимальная прибыль - " << maxIncome << endl;
+    cout << "Минимальная прибыль - " << minIncome << endl;
+  
+    return 0;
+}
+
