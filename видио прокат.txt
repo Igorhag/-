@@ -1,5 +1,8 @@
 #include <iostream>
+#include < stdio.h >  
+//#include < string.h >
 using namespace std;
+    int i = 0;
 struct vidprok
 {
     char name[250];
@@ -7,9 +10,8 @@ struct vidprok
     char janr[250];
     char reiting[250];
     char stoimost[250];
-
 };
-vidprok*Create(int size)
+vidprok* Create(int size)
 {
     vidprok* films = new vidprok[size];
     return films;
@@ -18,102 +20,120 @@ void DeleteFilms(vidprok* films)
 {
     delete[]films;
 }
-vidprok Input()
+void obhjee(vidprok* films)
 {
-    vidprok film;
-    cout << "Название фильма:"<<(film.name, 250) << "\n";
-    cout << "Режисёр:" << (film.rejiser, 250)<<"\n";
-    cout << "Жанр:" << (film.janr, 250) <<"\n"; 
-    cout << "Рейтинг популярности:" <<(film.reiting, 250)<< "\n";
-    cout << "Цена Диска:"<< (film.stoimost, 250)<< "\n";
-    return film;
+    cout << "название фильма- " << films->name << "\n";
+    cout << "режисер- " << films->rejiser << "\n";
+    cout << "жанр- " << films->janr << "\n";
+    cout << "рейтинг- " << films->reiting << "\n";
+    cout << "цена- " << films->stoimost << "\n";
 }
-void PrintFilm(vidprok films) 
+void naimefilm(vidprok* films, int size)
 {
-    cout << "Название фильма: " << films.name << "\n";
-    cout << "Режисёр: " << films.rejiser << "\n";
-    cout << "Жанр: " << films.janr << "\n";
-    cout << "Рейтинг популярности: " << films.reiting << "\n";
-    cout << "Цена Диска: " << films.stoimost << "\n";
-}
-void PrintAll(vidprok* films, int size)
-{
-    for (int i = 0; i < size; i++)
+    char a[200];
+    cout << "введите названия фильма " << "\n";
+    cin >> a;
+    for ( i = 0; i < size; i++)
     {
-        cout << i + 1 << ": ";
-        PrintFilm(films[i]);
-    }
-    cout << "\n";
-}
-vidprok* AddFilm(vidprok* films, int& size, vidprok film) 
-{
-    vidprok* tmp = Create(size + 1);
-    for (int i = 0; i < size; i++)
-    {
-        *(tmp + i) = *(films + i);
-    }
-    *(tmp + size) = film;
-    cout << "Вы добавили фильм:" << film.name << "\n";
-    DeleteFilms(films);
-    size++;
-    return tmp;
-}
-vidprok* DeleteTitleFilms(vidprok* films, int& size, char* searchName) 
-{
-    vidprok* tmp = Create(size - 1);
-    int k = 0;
-    for (int i = 0; i < size; i++)
-    {
-        if (strcmp(searchName, films[i].name) == 0) {
-            continue;
-        }
-        tmp[k] = films[i];
-        k++;
-    }
-    cout << "Вы удалили фильм:" << searchName << "\n";
-    DeleteFilms(films);
-    size--;
-    return tmp;
-}
-void SearchTitleFilm(vidprok* films, int& size, char* searchName) 
-{
-    for (int i = 0; i < size; i++)
-    {
-        if (strcmp(searchName, films[i].name) == 0)
+        if (strcmp(a, films[i].name) == 0)
         {
-            PrintFilm(films[i]);
-            cout << "\n";
+            obhjee(&films[i]);
+        }
+    }
+    if(strcmp(a, films[i].name) !=0 )
+    { 
+        cout << "нет в наличии\n";
+    }
+}
+void rejiserfilm(vidprok* films, int size)
+{
+    char a[200];
+    cout << "введите режисера " << "\n";
+    cin >> a;
+    for (int i = 0; i < size; i++)
+    {
+        if (strcmp(a, films[i].rejiser) == 0)
+        {
+            obhjee(&films[i]);
+        }
+    }
+    if (strcmp(a, films[i].rejiser) != 0)
+    {
+        cout << "нет такого режисера в списке\n";
+    }
+}
+void janrfilm(vidprok* films, int size)
+{
+    char a[200];
+    cout << "введите жанр " << "\n";
+    cin >> a;
+    for (int i = 0; i < size; i++)
+    {
+        if (strcmp(a, films[i].janr) == 0)
+        {
+            obhjee(&films[i]);
+        }
+    }
+    if (strcmp(a, films[i].janr) != 0)
+    {
+        cout << "нет ничто!!!\n";
+    }
+}
+void reitingfilm(vidprok* films, int size)
+{
+    char a[200];
+    cout << "введите рейтинг " << "\n";
+    cin >> a;
+    for (int i = 0; i < size; i++)
+    {
+        if (strcmp(a, films[i].reiting) == 0)
+        {
+            obhjee(&films[i]);
         }
     }
 }
-void SearchFimlJanr(vidprok* films, int& size, char* searchJanr) 
+void spisokfilm(vidprok* films, int size)
 {
-    for (int i = 0; i < size; i++)
-    {
-        if (strcmp(searchJanr, films[i].janr) == 0) 
+        for (int i = 0; i < size; i++)
         {
-            PrintFilm(films[i]);
-            cout << "\n";
-        }
-    }
-}
-void SearchRejiser(vidprok* films, int& size, char* searchRejiser)
-{
-    for (int i = 0; i < size; i++)
-    {
-        if (strcmp(searchRejiser, films[i].rejiser) == 0) 
-        {
-            PrintFilm(films[i]);
-            cout << "\n";
-        }
-    }
+            cout << i + 1 << ": ";
+             obhjee(&films[i]);
+        }           
 }
 
+vidprok* sozdat ()
+{
+    vidprok film;
+    cout << "Название фильма:" << "\n";
+    cin>>film.name, 250;
+    cout << "Режисёр:" << "\n";
+    cin>>film.rejiser, 250;
+    cout << "Жанр:" << "\n";
+    cin>>film.janr, 250;
+    cout << "Рейтинг:" << "\n";
+    cin>>film.reiting, 250;
+    cout << "Цена:" << "\n";
+    cin>>film.stoimost, 250;
+    return &film;
+}
+vidprok* AddFilm(vidprok* films, int size,vidprok film)
+{
+    vidprok* f = Create(size + 1);
+    for (int i = 0; i < size; i++)
+    {
+        *(f + i) = *(films + i);
+    }
+    sozdat();
+    *(f) = film;
+    cout << "Вы добавили фильм:" <<film.name << "\n";
+   size++;
+    return f;
+}
 int main()
 {
     setlocale(LC_ALL, "rus");
     int size = 10;
-    vidprok * films = Create(size);
+    vidprok* films = Create(size);
     films[0] = { "Пришельцы_в_доме", "Кристоф_Лауенштейн", "анимация", "9.3" , "99.00" };
     films[1] = { "Звезда_родилась", "Брэдли_Купер", "драма", "9.2", "99.00" };
     films[2] = { "Веном", "Рубен_Флейшер", "фантастика", "8.9", "99.00" };
@@ -121,63 +141,59 @@ int main()
     films[4] = { "Книжный_клуб", "Билл_Холдермэн", "комедия", "8.8", "99.00" };
     films[5] = { "Суперсемейка_2", "Брэд_Берд", "анимация", "8.7", "99.00" };
     films[6] = { "Поиск", "Аниш_Чаганти", "триллер", "8.8", "99.00" };
-    films[7] = { "Небоскреб", "Роусон_Маршалл_Тербер", "боевик", "8.6", "99.00" };
+    films[7] = { "lllll", "ooooo", "kkkkk", "11111", "99.00" };
     films[8] = { "Псы_под_прикрытием", "Раджа_Госнелл", "комедия", "8.8", "99.00" };
     films[9] = { "Величайший_шоумен", "Майкл_Грэйси", "музыкальный", "8.8", "99.00" };
-int menu;
-do
-{
-    cout << "выберити названия фильма-1\n";
-    cout << "выберити режисера-2\n";
-    cout << "выберити жанр-3\n";
-    cout << "выберити по рейтингу-4\n";
-    cout << "показать все фильмы-5\n";
-    cout << "добавить фильм-6\n";
-    cin >> menu;
-    cin.ignore();
-    switch (menu)
+    int menu;
+    do
     {
-    case 1:
-    {
-        char searchName[250];
-        cout << "Для поиска введите Название фильма" <<  (searchName, 250)<< "\n";
-        SearchTitleFilm(films, size, searchName);
-    }
-    break;
-    case 2:
-    {
-        char searchRejiser[250];
-        cout << "Для поиска введите Режисера"<<  (searchRejiser, 250)<< "\n";
-        SearchRejiser(films, size, searchRejiser);
-    }
-    break;
+        cout << "\n\n";
+        cout << "выберити названия фильма-1\n";
+        cout << "выберити режисера-2\n";
+        cout << "выберити жанр-3\n";
+        cout << "выберити по рейтингу-4\n";
+        cout << "показать все фильмы-5\n";
+        cout << "добавить фильм-6\n";
+        cout << "\n\n";
+        cin >> menu;
+        switch (menu)
+        {
+        case 1:
+        {
+            naimefilm(films, size);
+        }
+        break;
+        case 2:
+        {
+            rejiserfilm(films, size);
+        }
+        break;
 
-    case 3:
-    {
-        char searchJanr[250];
-        cout << "Введите Жанр для поиска:" << "\n";
-        cout << "анимация, драма, фантастика, комедия, боевик, триллер, музыкальный"<<(searchJanr, 250) << "\n";
-        SearchFimlJanr(films, size, searchJanr);
-    }
-    break;
-    case 4:
-    {
+        case 3:
+        {
+            janrfilm(films, size);
+        }
+        break;
+        case 4:
+        {
+            reitingfilm(films, size);
+        }
+        break;
+        case 5:
+        {
+            spisokfilm(films, size);
+        }
+        break;
+        case 6:
+        {
 
-    }
-    break;
-    case 5:
-    {
-        PrintAll(films, size);
-    }
-    break;
-    case 6:
-    {
-        films = AddFilm(films, size, Input());
-
-    }
-    break;
+             films=AddFilm(films, size, *sozdat());
+        }
+        break;
+        
     }
 
-} while (menu!=0);
-return 0;
+    } while (menu != 0);
+    DeleteFilms(films);
+    return 0;
 }
